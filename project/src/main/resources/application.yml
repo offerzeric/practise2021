@@ -1,0 +1,33 @@
+name: eric  #定义在配置文件中的普通变量
+jedis:
+  port: 6379
+  host: localhost
+person:  #定义在配置文件中的java类
+  name: ${name}
+  age: 20
+server:
+  port: 8080
+  servlet:
+    context-path: /eric  #项目访问根目录
+spring:
+  redis:
+    port: 6379
+    host: 127.0.0.1
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo
+    username: root
+    password: root
+    drive-class-name: com.mysql.jdbc.driver
+mybatis:
+  type-aliases-package: com.eric.project.pojo
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
